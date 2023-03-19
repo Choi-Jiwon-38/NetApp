@@ -1,23 +1,52 @@
 {
 	"compiler": {
-		"version": "0.4.26+commit.4563c3fc"
+		"version": "0.8.18+commit.87f61d96"
 	},
 	"language": "Solidity",
 	"output": {
 		"abi": [
 			{
-				"constant": false,
+				"inputs": [],
+				"stateMutability": "payable",
+				"type": "constructor"
+			},
+			{
 				"inputs": [],
 				"name": "bid",
 				"outputs": [],
-				"payable": true,
 				"stateMutability": "payable",
 				"type": "function"
 			},
 			{
-				"constant": true,
+				"inputs": [],
+				"name": "highestBid",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "highestBidder",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
+						"internalType": "address",
 						"name": "",
 						"type": "address"
 					}
@@ -25,75 +54,42 @@
 				"name": "userBalances",
 				"outputs": [
 					{
+						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
 					}
 				],
-				"payable": false,
 				"stateMutability": "view",
 				"type": "function"
 			},
 			{
-				"constant": false,
 				"inputs": [],
 				"name": "withdraw",
 				"outputs": [],
-				"payable": false,
 				"stateMutability": "nonpayable",
 				"type": "function"
-			},
-			{
-				"constant": true,
-				"inputs": [],
-				"name": "highestBidder",
-				"outputs": [
-					{
-						"name": "",
-						"type": "address"
-					}
-				],
-				"payable": false,
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"constant": true,
-				"inputs": [],
-				"name": "highestBid",
-				"outputs": [
-					{
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"payable": false,
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"payable": true,
-				"stateMutability": "payable",
-				"type": "constructor"
 			}
 		],
 		"devdoc": {
-			"methods": {}
+			"kind": "dev",
+			"methods": {},
+			"version": 1
 		},
 		"userdoc": {
-			"methods": {
-				"bid()": {
-					"notice": "���� ó�� �Լ�"
-				}
-			}
+			"kind": "user",
+			"methods": {},
+			"version": 1
 		}
 	},
 	"settings": {
 		"compilationTarget": {
 			"AuctionWithdraw.sol": "AuctionWithdraw"
 		},
-		"evmVersion": "byzantium",
+		"evmVersion": "paris",
 		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
 		"optimizer": {
 			"enabled": false,
 			"runs": 200
@@ -102,9 +98,11 @@
 	},
 	"sources": {
 		"AuctionWithdraw.sol": {
-			"keccak256": "0x6faa2f9e5f479aea99af040c63e7e89021f5edc57983f8b6f94091b313934a57",
+			"keccak256": "0x1fb7fe018f52f3b9a9e0e5dca0c1b4560e6bac481ca94871909f4ef5fb233c7e",
+			"license": "UNLICENSED",
 			"urls": [
-				"bzzr://78816419085b7407aa10d7b81ff4607d6f5f0c537eff509a990bfc280abf74f9"
+				"bzz-raw://e0d7202247f44a06350ff4e5a8038706d319d9d55784dd8bef919cf7b6866ca6",
+				"dweb:/ipfs/QmWBtqJUs8UCBmKjwSXdg96kqCT5cHHraWwy6bESjSSVC5"
 			]
 		}
 	},
