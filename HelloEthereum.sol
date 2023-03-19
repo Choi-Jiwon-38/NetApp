@@ -1,44 +1,37 @@
-pragma solidity ^0.4.11;
+pragma solidity >= 0.4.11; // Compiler 버전 수정 (0.4.11 이상)
 contract HelloEthereum {
-	// �ּ� �ֱ� 1
+	// SPDX-License-Identifier: UNLICENSED
+
 	string public msg1;	
 	
-	string private msg2; // �ּ� �ֱ� 2
+	string private msg2;
 	
-	/* �ּ� �ֱ� 3 */
 	address public owner;
 	
 	uint8 public counter;
-	
-	/// ������
-	function HelloEthereum(string _msg1) {
-		// msg1�� _msg1�� ���� ����
+
+	// HelloEthereum -> constructor 수정
+	constructor (string memory _msg1) public {
 		msg1 = _msg1;
 		
-		// owner�� ���� �� ��Ʈ��Ʈ�� ������ ���� �ּҸ� ����
 		owner = msg.sender;
 		
-		// counter�� 0���� �ʱ�ȭ
 		counter = 0;
 	}
 	
-	/// msg2 ������ �޼���
-	function setMsg2(string _msg2) public {
-		// if�� ��� ��
+	function setMsg2(string memory _msg2) public {
 		if(owner != msg.sender) {
-			throw;
+			revert(); // throw -> revert 변경
 		} else {
 			msg2 = _msg2;	
 		}
 	}
 	
-	// msg2�� ������ �޼���
-	function getMsg2() constant public returns(string) {
+	function getMsg2() view public returns(string memory) { // constant -> view
 		return msg2;
 	}
 	
 	function setCounter() public {
-		// for�� ��� ��
 		for(uint8 i = 0; i < 3; i++) {
 			counter++;
 		}

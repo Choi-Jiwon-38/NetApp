@@ -100,11 +100,7 @@
 			"methods": {}
 		},
 		"userdoc": {
-			"methods": {
-				"setMsg2(string)": {
-					"notice": "msg2 ������ �޼���"
-				}
-			}
+			"methods": {}
 		}
 	},
 	"settings": {
@@ -121,9 +117,9 @@
 	},
 	"sources": {
 		"HelloEthereum.sol": {
-			"keccak256": "0xaf9e4a7a5e35a16243e430f149884a4637f504e5f1402737d5011f30a5db187b",
+			"keccak256": "0xf79819e067bb88a286e0d2f007967180710e8090125db541ecf8ffd5a1872fa8",
 			"urls": [
-				"bzzr://f3217a47ff894db5583d93f0e1cb018524a83f8939f41b2a026a3ac006626af6"
+				"bzzr://ceb217c93a56174f8fbb544cd1721dc28e325779fa43d5ed138defab9f97ede7"
 			]
 		}
 	},
