@@ -1,29 +1,29 @@
-pragma solidity ^0.4.11;
+pragma solidity >= 0.4.11;
 contract NameRegistry {
 
-	// ��Ʈ��Ʈ�� ��Ÿ�� ����ü
+	// 컨트랙트를 나타낼 구조체
 	struct Contract {
 		address owner;
 		address addr;
-		bytes32 description;
+		string description;
 	}
 
-	// ��ϵ� ���ڵ� ��
+	// 등록된 레코드 수
 	uint public numContracts;
 
-	// ��Ʈ��Ʈ�� ������ ����
-	mapping (bytes32  => Contract) public contracts;
-    
-	/// ������
-	function NameRegistry() {
+	// 컨트랙트를 저장할 매핑
+	mapping (string  => Contract) public contracts;
+
+	// 생성자
+	constructor() {
 		numContracts = 0;
 	}
 
-	/// ��Ʈ��Ʈ ���
-	function register(bytes32 _name) public returns (bool){
-		// ���� ������ ���� �̸��̸� �ű� ���
-		if (contracts[_name].owner == 0) {
-			Contract con = contracts[_name];
+	// 컨트랙트 등록
+	function register(string memory _name) public returns (bool){
+		// 아직 사용 되지 않은 이름이면 신규 등록
+		if (contracts[_name].owner == address(0)) { // 0 -> address(0)
+			Contract storage con = contracts[_name];
 			con.owner = msg.sender;
 			numContracts++;
 			return true;
@@ -32,10 +32,10 @@ contract NameRegistry {
 		}
 	}
 
-	/// ��Ʈ��Ʈ ����
-	function unregister(bytes32 _name) public returns (bool) {
+
+	function unregister(string memory _name) public returns (bool) {
 		if (contracts[_name].owner == msg.sender) {
-			contracts[_name].owner = 0;
+			contracts[_name].owner = address(0);	// 0 -> address(0) 
  			numContracts--;
  			return true;
 		} else {
@@ -43,38 +43,38 @@ contract NameRegistry {
 		}
 	}
 	
-	/// ��Ʈ��Ʈ ������ ����
-	function changeOwner(bytes32 _name, address _newOwner) public onlyOwner(_name) {
+
+	function changeOwner(string memory _name, address _newOwner) public onlyOwner(_name) {
 		contracts[_name].owner = _newOwner;
 	}
 	
-	/// ��Ʈ��Ʈ ������ ���� Ȯ��
-	function getOwner(bytes32 _name) constant public returns (address) {
+
+	function getOwner(string memory _name) view public returns (address) {
 		return contracts[_name].owner;
 	}
     
-	/// ��Ʈ��Ʈ ��巹�� ����
-	function setAddr(bytes32 _name, address _addr) public onlyOwner(_name) {
+
+	function setAddr(string memory _name, address _addr) public onlyOwner(_name) {
 		contracts[_name].addr = _addr;
     }
     
-	/// ��Ʈ��Ʈ ��巹�� Ȯ��
-	function getAddr(bytes32 _name) constant public returns (address) {
+
+	function getAddr(string memory _name) view public returns (address) {
 		return contracts[_name].addr;
 	}
         
-	/// ��Ʈ��Ʈ ���� ����
-	function setDescription(bytes32 _name, bytes32 _description) public onlyOwner(_name) {
+
+	function setDescription(string memory _name, string memory _description) public onlyOwner(_name) {
 		contracts[_name].description = _description;
 	}
 
-	/// ��Ʈ��Ʈ ���� Ȯ��
-	function getDescription(bytes32 _name) constant public returns (bytes32)  {
+	// 컨트랙트 설명 확인
+	function getDescription(string memory _name) view public returns (string memory)  {
 		return contracts[_name].description;
 	}
     
-	/// �Լ��� ȣ�� �� ���� ó���Ǵ� modifier�� ����
-	modifier onlyOwner(bytes32 _name) {
+	// 함수를 호출 전, 먼저 처리되는 modifier를 정의
+	modifier onlyOwner(string memory _name) {
 	    require(contracts[_name].owner == msg.sender);
 		_;
 	}
