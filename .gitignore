@@ -1,0 +1,23 @@
+# Created by https://www.toptal.com/developers/gitignore/api/remix,geth
+# Edit at https://www.toptal.com/developers/gitignore?templates=remix,geth
+
+### Geth ###
+# .gitignore for Geth 0.4.16
+
+# caches
+/geth
+/keystore
+history
+
+# logs
+*.out
+*.log
+
+### Remix ###
+node_modules
+/.cache
+/build
+/public/build
+.env
+
+# End of https://www.toptal.com/developers/gitignore/api/remix,geth
