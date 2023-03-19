@@ -1,6 +1,6 @@
+// SPDX-License-Identifier: UNLICENSED
 pragma solidity >= 0.4.11; // Compiler 버전 수정 (0.4.11 이상)
 contract HelloEthereum {
-	// SPDX-License-Identifier: UNLICENSED
 
 	string public msg1;	
 	
@@ -11,7 +11,7 @@ contract HelloEthereum {
 	uint8 public counter;
 
 	// HelloEthereum -> constructor 수정
-	constructor (string memory _msg1) public {
+	constructor (string memory _msg1) {
 		msg1 = _msg1;
 		
 		owner = msg.sender;
